@@ -1,4 +1,6 @@
 import { z } from "zod"
+import { DB } from "../lib/db"
+
 export const docSchema = z.object({
     id: z.string(),
     userId: z.string(),
@@ -11,4 +13,8 @@ export const docSchema = z.object({
 
 export const createDoc = (props: z.infer<typeof docSchema>) => {
     return props;
+}
+
+export class VideoDB extends DB<z.infer<typeof docSchema>> {
+
 }
